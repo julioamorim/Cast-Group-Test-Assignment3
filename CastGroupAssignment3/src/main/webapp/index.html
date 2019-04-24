@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 3</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/general.controller.js"></script>
+<script type="text/javascript" src="app/person.service.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="crudApp" ng-controller="GeneralController">
+
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">Persons</div>
+		<div class="panel-body">
+			<form class="col-md-4" ng-submit="savePerson()">
+				<div class="form-group">
+					<label for="personName">Person Name</label> <input type="text"
+						ng-model="person.name" class="form-control" id="personName"
+						placeholder="Person Name">
+				</div>
+				<div class="form-group">
+					<label for="personStreet">Street</label> <input type="text"
+						ng-model="person.street" class="form-control" id="personStreet"
+						placeholder="Street">
+				</div>
+				<div class="form-group">
+					<label for="personNumber">Number</label> <input type="text"
+						ng-model="person.number" class="form-control" id="personNumber"
+						placeholder="Number">
+				</div>
+				<div class="form-group">
+					<label for="personNeighborhood">Neighborhood</label> <input
+						type="text" ng-model="person.neighborhood" class="form-control"
+						id="personNeighborhood" placeholder="Neighborhood">
+				</div>
+				<div class="form-group">
+					<label for="personCity">City</label> <input type="text"
+						ng-model="person.city" class="form-control" id="personCity"
+						placeholder="City">
+				</div>
+				<div class="form-group">
+					<label for="personState">State</label> <input type="text"
+						ng-model="person.state" class="form-control" id="personState"
+						placeholder="State">
+				</div>
+				<div class="form-group">
+					<label for="personCellPhone">Cellphone</label> <input type="text"
+						ng-model="person.cellPhone" class="form-control"
+						id="personCellPhone" placeholder="personCellPhone">
+				</div>
+				<div class="form-group">
+					<label for="personPhone">Phone</label> <input type="text"
+						ng-model="person.phone" class="form-control" id="personPhone"
+						placeholder="Phone">
+				</div>
+
+				<button type="submit" class="btn btn-default">{{buttonText}}</button>
+			</form>
+			<div class="table-responsive col-md-6">
+				<table class="table table-striped">
+					<tr>
+						<th>Name</th>
+						<th>Street</th>
+						<th>Number</th>
+						<th>Neighborhood</th>
+						<th>City</th>
+						<th>State</th>
+						<th>CellPhone</th>
+						<th>Phone</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="person in persons">
+						<td>{{person.name}}</td>
+						<td>{{person.street}}</td>
+						<td>{{person.number}}</td>
+						<td>{{person.neighborhood}}</td>
+						<td>{{person.city}}</td>
+						<td>{{person.state}}</td>
+						<td>{{person.cellPhone}}</td>
+						<td>{{person.phone}}</td>
+						<td>
+							<button type="button" class="btn btn-default"
+								ng-click="updatePersonInit(person)">
+								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							</button>
+							<button type="button" class="btn btn-default"
+								ng-click="deletePerson(person)">
+								<span class="glyphicon glyphicon-remove-circle"
+									aria-hidden="true"></span>
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
